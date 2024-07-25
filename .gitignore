@@ -1,9 +1,10 @@
-data/populationdensity/
-data/washingmachine/
-results/populationdensity/mp/
-results/populationdensity/mp_indices/
-results/washingmachine/mp/
-results/washingmachine/mp_indices/
+data/
+results/*
+# Do not ignore subdirectories inside results/
+!results/*/
+
+
+
 
 
 
