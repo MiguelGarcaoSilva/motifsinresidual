@@ -1,8 +1,7 @@
 data/
 # Ignore all files inside results/ and its subdirectories
-results/**
-# Do not ignore directories inside results/
-!results/**/
+results/
+
 
 
 
