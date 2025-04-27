@@ -16,7 +16,7 @@ Given a multivariate time series:
 
 For a motif \( M \) spanning \( q \) variables, its occurrence probability \( p_M \) is estimated as:
 
-![Markovian Assumption Formula](images/markovian_formula.png)
+![Markovian Assumption Formula](markovian_formula.png)
 
 
 where:
@@ -25,7 +25,7 @@ where:
 
 If approximate matches are allowed:
 
-![Deviations Formula](images/deviations_formula.png)
+![Deviations Formula](deviations_formula.png)
 
 
 ---
@@ -44,15 +44,20 @@ This example illustrates how to compute the p-value of a discovered motif.
 ### Steps
 
 1. **Estimate \( p_M \):**  
-   Using the standard normal CDF and first-order Markov assumption, compute the joint probability of the subsequence within the allowed tolerance ranges.
+   Using the standard normal CDF and first-order Markov assumption, compute the joint probability of the subsequence within the allowed tolerance ranges:
 
-2. **Number of Trials:**  
+   ![Example](example_calculation.png)
+
+
+3. **Number of Trials:**  
    Possible subsequence starting points:  
    \( N = n - s + 1 = 97 \)  
    (where \( s \) is the size of the motif)
 
-3. **Compute p-value:**  
-   Using a binomial tail, the probability of observing at least \( r = 5 \) occurrences of the motif is computed.  
+4. **Compute p-value:**  
+   Using a binomial tail, the probability of observing at least \( r = 5 \) occurrences of the motif is computed.
+
+
    **Resulting p-value:** \( 2.2 \times 10^{-16} \)
 
    Since this value is much smaller than a common threshold (e.g., \( \alpha = 10^{-3} \)), the motif is deemed **statistically significant**.
