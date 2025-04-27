@@ -14,14 +14,14 @@ Given a multivariate time series:
 
 **Probability Model:**
 
-For a motif \( M \) spanning \( q \) variables, its occurrence probability \( p_M \) is estimated as:
+For a motif $M$ spanning $q$ variables, its occurrence probability $p_M$ is estimated as:
 
 ![Markovian Assumption Formula](markovian_formula.png)
 
 
 where:
-- \( J \) is the set of variables,
-- \( p_{M_j} \) is the probability of a motif subsequence in variable \( j \).
+- $J$ is the set of variables,
+- $p_{M_j}$ is the probability of a motif subsequence in variable $j$.
 
 If approximate matches are allowed:
 
@@ -38,12 +38,12 @@ This example illustrates how to compute the p-value of a discovered motif.
 
 - **Time Series:** univariate, Z-normalized
 - **Motif:** `[0.8, 0.3, 0.5, 0.5]`
-- **Allowed Deviation:** \( \delta_{\max} = 0.2 \)
-- **Length of Series:** \( n = 100 \)
+- **Allowed Deviation:** $\delta_{\max} = 0.2$
+- **Length of Series:** $n = 100$
 
 ### Steps
 
-1. **Estimate \( p_M \):**  
+1. **Estimate $p_M$:**  
    Using the standard normal CDF and first-order Markov assumption, compute the joint probability of the subsequence within the allowed tolerance ranges:
 
    ![Example](example_calculation.png)
@@ -51,16 +51,13 @@ This example illustrates how to compute the p-value of a discovered motif.
 
 3. **Number of Trials:**  
    Possible subsequence starting points:  
-   \( N = n - s + 1 = 97 \)  
-   (where \( s \) is the size of the motif)
+   $N = n - s + 1 = 97$
+   (where $s$ is the size of the motif)
 
-4. **Compute p-value:**  
-   Using a binomial tail, the probability of observing at least \( r = 5 \) occurrences of the motif is computed.
+4. **Compute p-value:**
 
+   Assuming this series follows a standard normal distribution $\mathcal{N}(0,1)$ under a Z-normalization scenario, and given a residual series of length $n=100$, with the given motif $M$ first occurring at position 10, then the probability of observing a similar motif with at least five matches is 2.2E-16, a considerably low likelihood against a reference threshold, $\alpha$=1E-03, attesting its **statistically singnificance**.
 
-   **Resulting p-value:** \( 2.2 \times 10^{-16} \)
-
-   Since this value is much smaller than a common threshold (e.g., \( \alpha = 10^{-3} \)), the motif is deemed **statistically significant**.
 
 If you're interested in a more general and powerful framework for evaluating the statistical significance of motifs (across arbitrary multivariate time series and variable types), check out our other work:
 
